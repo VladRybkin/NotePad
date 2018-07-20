@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class Controller {
     private Model model;
     private View view;
-    Note note = new Note();
+    Note note;
     NotePad notePad = new NotePad();
     private Scanner scanner = new Scanner(System.in);
     public static ResourceBundle bundle;
@@ -41,19 +41,19 @@ public class Controller {
 
     public void createNewNote() {
         getUSBundleData();
-        addEntry();
+        notePad.addNote(addEntry());
         view.printMessage(notePad.toString());
     }
 
 
-    public void addEntry() {
-        Note note = new Note();
+    public Note addEntry() {
+        note=new Note();
         addName(bundle.getString(TextConstant.NAME_MESSAGE));
         addSurname(bundle.getString(TextConstant.SURNAME_MESSAGE));
         addPatronymic(bundle.getString(TextConstant.PATRONYMIC_MESSAGE));
         addInitials();
         addAddress(bundle.getString(TextConstant.ADDRESS_MESSAGE));
-        addNickname(bundle.getString(TextConstant.LOGIN_MESSAGE));
+        addNickname(bundle.getString(TextConstant.NICKNAME_MESSAGE));
         addComment(bundle.getString(TextConstant.COMMENT_MESSAGE));
         addGroup(bundle.getString(TextConstant.GROUP_MESSAGE));
         addEmail(bundle.getString(TextConstant.EMAIL_MESSAGE));
@@ -61,6 +61,7 @@ public class Controller {
         addHomePhoneNumber(bundle.getString(TextConstant.HOME_PHONE_MESSAGE));
         addSkype(bundle.getString(TextConstant.SKYPE_MESSAGE));
         addWritingDate();
+        return note;
 
 
     }
@@ -135,7 +136,7 @@ public class Controller {
     }
 
 
-    private void checkEnum(String regexedEnumName, Group group) {
+     void checkEnum(String regexedEnumName, Group group) {
         if (regexedEnumName.equals(group.toString())) {
             note.setGroup(group);
         }
@@ -143,7 +144,7 @@ public class Controller {
 
 
 
-    private String inputStringValueWithScanner(String message, String regex) {
+     String inputStringValueWithScanner(String message, String regex) {
         String result = "";
         view.printMessage(message);
         while (!(scanner.hasNextLine() && (result = scanner.nextLine()).matches(regex))) {
