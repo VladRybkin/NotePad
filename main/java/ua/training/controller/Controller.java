@@ -29,10 +29,9 @@ public class Controller {
     }
 
     private static void getUSBundleData() {
-        String MESSAGES_BUNDLE_NAME = "messages";
-        final ResourceBundle bundle =
+         bundle =
                 ResourceBundle.getBundle(
-                        MESSAGES_BUNDLE_NAME,
+                        View.PROPERTY_PATH,
                         new Locale("en", "US"));
     }
 
@@ -150,6 +149,7 @@ public class Controller {
         }
         return result;
     }
+
 
 
 }

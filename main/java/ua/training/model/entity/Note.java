@@ -28,9 +28,9 @@ public class Note {
     public Note() {
     }
 
-    public Note(String name, String surname) {
+    public Note(String name) {
         this.name = name;
-        this.surname = surname;
+
     }
 
 
