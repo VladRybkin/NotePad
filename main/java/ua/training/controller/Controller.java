@@ -19,7 +19,10 @@ public class Controller {
     Note note;
     NotePad notePad = new NotePad();
     private Scanner scanner = new Scanner(System.in);
-    public static ResourceBundle bundle;
+    public static ResourceBundle bundle =
+            ResourceBundle.getBundle(
+                    View.PROPERTY_PATH,
+                    new Locale("en", "US"));;
 
 
     public Controller(Model model, View view) {
@@ -37,7 +40,7 @@ public class Controller {
 
 
     public void createNewNote() {
-        getUSBundleData();
+//        getUSBundleData();
         notePad.addNote(addEntry());
         view.printMessage(notePad.toString());
     }
