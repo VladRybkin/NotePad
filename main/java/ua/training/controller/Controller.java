@@ -147,7 +147,7 @@ public class Controller {
      String inputStringValueWithScanner(String message, String regex) {
         String result = "";
         view.printMessage(message);
-        while (!(scanner.hasNextLine() && (result = scanner.nextLine()).matches(regex))) {
+        while (!(scanner.hasNext() && (result = scanner.next()).matches(regex))) {
             if (!result.isEmpty()) view.printMessage(bundle.getString(TextConstant.WRONG_INPUT));
         }
         return result;
