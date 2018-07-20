@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
  * Created by student on 26.09.2017.
  */
 public class View {
-    public static final String PROPERTY_PATH = "constants";
+    public static final String PROPERTY_PATH = "messages";
 
 
 
