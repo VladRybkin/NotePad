@@ -20,14 +20,12 @@ public class Controller {
     NotePad notePad = new NotePad();
     private Scanner scanner = new Scanner(System.in);
     public static ResourceBundle bundle;
-    private Locale locale;
 
 
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
 
-        this.locale = new Locale("en", "US");
     }
 
     private static void getUSBundleData() {
